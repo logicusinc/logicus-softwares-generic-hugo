@@ -1,0 +1,44 @@
+<meta charset="utf-8">
+<meta http-equiv="cleartype" content="on">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- robots -->
+<!-- you may configure it in the front matter of the page or in site params -->
+{{ if or (isset .Params "robots") (isset .Site.Params "robots") }}
+<meta name="robots" content="{{ with .Params.robots }}{{ . }}{{ else }}{{ .Site.Params.robots }}{{ end }}">
+{{ end }}
+
+<!-- Place favicon.ico and apple-touch-icon.png in the root directory
+     or place appropriate <link .../> etc in favicon.html partial -->
+{{ partial "favicon.html" . }}
+
+<title>{{ .Title }}</title>
+
+{{ if .Keywords }}
+<meta name="keywords" content="{{ delimit .Keywords ", " }}">
+{{ else if .Site.Params.DefaultKeywords }}
+<meta name="keywords" content="{{ delimit .Site.Params.DefaultKeywords ", " }}">	
+{{ end }}
+
+{{ if .Description }}
+<meta name="description" content="{{ .Description }}">
+{{ else if .Site.Params.DefaultDescription }}
+<meta name="description" content="{{ .Site.Params.DefaultDescription }}">	
+{{ end }}
+
+{{ define "meta_tags" }}
+<meta property="og:title" content="{{ .Site.Params.homepage_meta_tags.meta_og_title }}" />
+<meta property="og:type" content="{{ .Site.Params.homepage_meta_tags.meta_og_type }}" />
+<meta property="og:url" content="{{ .Site.Params.homepage_meta_tags.meta_og_url }}" />
+<meta property="og:image" content="{{ .Site.Params.homepage_meta_tags.meta_og_image }}" />
+<meta property="og:description" content="{{ .Site.Params.homepage_meta_tags.meta_og_description }}" />
+<meta name="twitter:card" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_card }}" />
+<meta name="twitter:site" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_site }}" />
+<meta name="twitter:creator" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_creator }}" />
+{{ end }}
+
+{{ $vendors := resources.Get "css/vendors.css" | postCSS }}
+{{ $theme := resources.Get "css/base.sass" | toCSS }}
+
+<link rel="stylesheet" href="{{ $vendors.Permalink }}">
+<link rel="stylesheet" href="{{ $theme.Permalink }}">
