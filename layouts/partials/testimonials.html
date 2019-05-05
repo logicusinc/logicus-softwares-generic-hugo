@@ -1,0 +1,44 @@
+{{ if .Site.Params.testimonials.enable }}
+{{ if gt (len .Site.Data.testimonials) 0 }}
+<section class="section-bg--pattern">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading u-text-center">
+                    <h2 class="h2">{{ .Site.Params.testimonials.title }}</h2>
+                </div>
+
+                {{ if .Site.Params.testimonials.lead }}
+                <p class="lead">
+                  {{ .Site.Params.testimonials.lead | markdownify }}
+                </p>
+                {{ end }}
+
+
+                <ul class="owl-carousel owl-theme js-testimonials">
+                    {{ range $index, $element := sort .Site.Data.testimonials "weight" }}
+                    <li class="u-same-height">
+                        <div class="c-testimonial">
+                            <div class="c-testimonial__text">
+                                <p>{{ .text | markdownify }}</p>
+                            </div>
+                            <div class="clear">
+                                <div class="c-testimonial__icon">
+                                    <i class="fa fa-quote-left"></i>
+                                </div>
+                                <div class="c-testimonial__profile">
+                                    <img class="img img__circle c-testimonial__avatar" alt="" src="{{ .avatar | absURL }}">
+                                    <p class="c-testimonial__name">{{ .name }}</p>
+                                    <p class="c-testimonial__position">{{ .position }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}

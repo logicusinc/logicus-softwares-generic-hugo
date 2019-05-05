@@ -1,0 +1,90 @@
+@import "vendors";
+@import "vendors-override";
+
+@import "variables/colors";
+@import "variables/typography";
+
+@import "components/testimonials";
+
+@import "utilities";
+@import "hacks";
+@import "debug";
+
+
+h2 {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: $dark-gray;
+    font-size: 14px;
+    line-height: 1.42857143;
+}
+
+.heading {
+    margin-bottom: 40px;
+}
+
+.lead {
+    font-size: 21px;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.box-simple {
+    min-height: 230px;
+    text-align: center;
+    margin-bottom: 40px;
+
+    p {
+        margin: 0 0 10px;
+    }
+
+    h3 {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: $dark-gray;
+        font-weight: 800;
+        text-transform: uppercase;
+        font-size: 18px;
+    }
+}
+
+
+section {
+    padding: 60px 0;
+}
+
+.img {
+}
+
+.img__circleBorder {
+    border-radius: 40px;
+    display: inline-block;
+    font-size: 25px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    width: 80px;
+}
+
+.img__circleBorder--primary {
+    border-color: $primary-color;
+    border: solid 1px $primary-color;
+    color: $primary-color;
+}
+
+.img__circle {
+    border-radius: 30px;
+}
+
+.clear:after {
+    clear: both;
+    content: "";
+    display: table;
+}

@@ -1,0 +1,35 @@
+{{ if .Site.Params.clients.enable }}
+{{ if gt (len .Site.Data.clients) 0 }}
+<section class="red">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading u-text-center">
+                    <h2 class="h2">{{ .Site.Params.clients.title }}</h2>
+                </div>
+
+                {{ if .Site.Params.client.lead }}
+                <p class="lead">
+                  {{ .Site.Params.clients.lead }}
+                </p>
+                {{ end }}
+
+                <ul class="owl-carousel js-clients">
+                    {{ range $index, $element := sort .Site.Data.clients "weight" }}
+                    <li title="{{ .name }}">
+                        {{ if .url }}
+                          <a href="{{ .url }}" target="_blank">
+                            <img class="img u-img-responsive" src="{{ .image }}" alt="{{ .name }}" />
+                          </a>
+                        {{ else }}
+                          <img class="img u-img-responsive" src="{{ .image }}" alt="{{ .name }}" />
+                        {{ end }}
+                    </li>
+                    {{ end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ end }}

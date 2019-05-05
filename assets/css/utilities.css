@@ -1,0 +1,32 @@
+.u-text-uppercase {
+    text-transform: uppercase;
+}
+
+.u-text-center {
+    text-align: center;
+}
+
+.u-text-right {
+    text-align: right;
+}
+
+.u-same-height {
+    display: flex;
+    height: 100%;
+}
+
+.u-img-responsive {
+  object-fit: cover;
+  width: auto !important;
+  height: auto;
+}
+
+.u-mask--primary {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $primary-color;
+    opacity: 0.85;
+}

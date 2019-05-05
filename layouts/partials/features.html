@@ -1,0 +1,28 @@
+{{ if .Site.Params.features.enable }}
+{{ if gt (len .Site.Data.features) 0 }}
+<section class="red">
+    <div class="container">
+        {{ range $index, $element := sort $.Site.Data.features "weight" }}
+            {{ if eq (mod $index $.Site.Params.features.perRows) 0 }}
+                <div class="row">
+            {{ end }}
+            <div class="col-md">
+                <div class="box-row">
+                    <div class="box-simple">
+                        <div class="img img__circleBorder img__circleBorder--primary">
+                            <i class="{{ .icon }}"></i>
+                        </div>
+                        <h3>{{ $element.name }}</h3>
+                        <p>{{ $element.description | markdownify }}</p>
+                    </div>
+                </div>
+            </div>
+
+            {{ if eq (mod (add $index 1) $.Site.Params.features.perRows) 0 }}
+                </div>
+            {{ end }}
+        {{ end }}
+    </div>
+</section>
+{{ end }}
+{{ end }}

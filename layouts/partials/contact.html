@@ -1,0 +1,46 @@
+{{ if .Site.Params.contact.enable }}
+<section class="blue">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="heading u-text-center">
+                    <h2 class="h2">{{ .Site.Params.contact.title }}</h2>
+                </div>
+
+                {{ if .Site.Params.contact.lead }}
+                <p class="lead u-text-center">
+                    {{ .Site.Params.contact.lead | markdownify }}
+                </p>
+                {{ end }}
+
+                <!-- <div class="main&#45;title"><br/>Téléphone: 450-224-7474</div>  -->
+                <!-- <div class="main&#45;title">Sans frais: +1-888-824-7474</div>                           -->
+                <div class="desc-title"><br/>31 des Alouettes, Sainte-Anne-des-Lacs, Québec, Canada J0R 1B0<br/ ></div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+                    <!--  -->
+                    <!--           -->
+                    <!--  -->
+                    <!--     </div><!&#45;&#45; /section&#45;title &#45;&#45;> -->
+                    <!--  -->
+                    <!-- </div><!&#45;&#45; /col&#45;md&#45;12 &#45;&#45;> -->
+                    <!--  -->
+                    <!-- <!&#45;&#45; col&#45;md&#45;12 &#45;&#45;> -->
+                    <!-- <div class="col&#45;md&#45;12"> -->
+                    <!--  -->
+                    <!--     <!&#45;&#45; section&#45;title &#45;&#45;> -->
+                    <!--     <div class="section&#45;title"> -->
+                    <!--  -->
+                    <!--         <!&#45;&#45; main&#45;title &#45;&#45;> -->
+                    <!--         <div class="main&#45;title"> -->
+                    <!--             Courriel -->
+                    <!--         </div><!&#45;&#45; /main&#45;title &#45;&#45;> -->
+                    <!--  -->
+                    <!--         <!&#45;&#45; desc&#45;title &#45;&#45;> -->
+                    <!--         <div class="desc&#45;title"> -->
+                    <!--              Écrivez&#45;nous pour nous envoyer une suggestion ou juste pour nous dire bonjour.<br/ > Nous sommes là pour vous et nous aimons avoir de vos nouvelles<br/ > via l'adresse courriel suivante <a href=mailto:info@infomarina.ca>info@infomarina.ca</a> -->
+                    <!--         </div><!&#45;&#45; /desc&#45;title &#45;&#45;> -->
