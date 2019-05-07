@@ -4,26 +4,26 @@
 @import "variables/colors";
 @import "variables/typography";
 
+@import "objects/image";
+@import "objects/button";
+
 @import "components/testimonials";
+@import "components/pricing";
 
 @import "utilities";
 @import "hacks";
 @import "debug";
 
 
-h2 {
-    display: inline-block;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 700;
-    font-size: 30px;
-}
-
 body {
     font-family: 'Roboto', sans-serif;
     color: $dark-gray;
     font-size: 14px;
     line-height: 1.42857143;
+}
+
+strong {
+    font-weight: 700;
 }
 
 .heading {
@@ -58,29 +58,6 @@ body {
 
 section {
     padding: 60px 0;
-}
-
-.img {
-}
-
-.img__circleBorder {
-    border-radius: 40px;
-    display: inline-block;
-    font-size: 25px;
-    height: 80px;
-    line-height: 80px;
-    text-align: center;
-    width: 80px;
-}
-
-.img__circleBorder--primary {
-    border-color: $primary-color;
-    border: solid 1px $primary-color;
-    color: $primary-color;
-}
-
-.img__circle {
-    border-radius: 30px;
 }
 
 .clear:after {

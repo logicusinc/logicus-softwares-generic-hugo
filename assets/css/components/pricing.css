@@ -1,0 +1,31 @@
+.c-pricing__box {
+    text-align: center;
+    border: 1px solid $light-gray;
+    background-color: $white;
+    max-width: 290px;
+    margin: auto;
+}
+
+.c-pricing__name {
+    font-weight: 700;
+    padding: 25px;
+    background-color: $primary-color;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    color: $white;
+}
+
+.c-pricing__list {
+}
+
+.c-pricing__list_item {
+    padding: 10px 20px;
+}
+
+.c-pricing__list_item:not(:last-child) {
+    border-bottom: 1px dashed $light-gray;
+}
+
+.c-pricing__footer {
+    padding: 10px;
+}

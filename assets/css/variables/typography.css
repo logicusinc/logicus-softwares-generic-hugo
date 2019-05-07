@@ -10,4 +10,9 @@
 
 .h2 {
     border-bottom: solid 5px $primary-color;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    font-size: 30px;
 }

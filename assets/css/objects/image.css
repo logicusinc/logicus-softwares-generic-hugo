@@ -1,0 +1,22 @@
+.o-img {
+}
+
+.o-img__circleBorder {
+    border-radius: 40px;
+    display: inline-block;
+    font-size: 25px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    width: 80px;
+}
+
+.o-img__circleBorder--primary {
+    border-color: $primary-color;
+    border: solid 1px $primary-color;
+    color: $primary-color;
+}
+
+.o-img__circle {
+    border-radius: 30px;
+}

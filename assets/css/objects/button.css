@@ -1,0 +1,22 @@
+.o-btn {
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px 12px;
+}
+
+.o-btn--primary {
+    color: $primary-color;
+    background-color: $white;
+    border-color: $primary-color;
+}
+
+.o-btn--primary:hover {
+    color: $white;
+    background-color: $primary-color;
+    border-color: $primary-color;
+}
+
+.o-btn--big {
+    font-size: 14px;
+    padding: 12px 50px;
+}
