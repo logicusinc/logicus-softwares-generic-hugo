@@ -18,7 +18,12 @@
                 <div class="row">
                     {{ range $index, $element := sort .Site.Data.pricings "weight" }}
                     <div class="col-md">
+
+                        {{ if .isFeatured }}
+                        <div class="c-pricing__box c-pricing__box--featured">
+                        {{ else }}
                         <div class="c-pricing__box">
+                        {{ end }}
                             <div class="c-pricing__name">
                                 <p>{{ .name }}</p>
                             </div>

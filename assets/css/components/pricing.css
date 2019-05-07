@@ -6,6 +6,11 @@
     margin: auto;
 }
 
+
+.c-pricing__box--featured {
+    max-width: 400px;
+}
+
 .c-pricing__name {
     font-weight: 700;
     padding: 25px;
@@ -23,7 +28,7 @@
 }
 
 .c-pricing__list_item:not(:last-child) {
-    border-bottom: 1px dashed $neutral-lightest-color;
+    border-bottom: 1px dashed $neutral-light-color;
 }
 
 .c-pricing__footer {
