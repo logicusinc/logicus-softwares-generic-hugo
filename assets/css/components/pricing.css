@@ -1,7 +1,7 @@
 .c-pricing__box {
     text-align: center;
-    border: 1px solid $light-gray;
-    background-color: $white;
+    border: 1px solid $neutral-light-color;
+    background-color: $neutral-lightest-color;
     max-width: 290px;
     margin: auto;
 }
@@ -12,7 +12,7 @@
     background-color: $primary-color;
     margin-bottom: 25px;
     text-transform: uppercase;
-    color: $white;
+    color: $neutral-lightest-color;
 }
 
 .c-pricing__list {
@@ -23,7 +23,7 @@
 }
 
 .c-pricing__list_item:not(:last-child) {
-    border-bottom: 1px dashed $light-gray;
+    border-bottom: 1px dashed $neutral-lightest-color;
 }
 
 .c-pricing__footer {

@@ -1,5 +1,13 @@
 /* $primary-color: #38a7bb; */
-$primary-color: #5fa8dd;
-$dark-gray: #555555;
-$light-gray: #999999;
-$white: #ffffff;
+
+/* InfoMarina */
+$primary-color: #5fa8dd; 
+$secondary-color: #2a84c6;
+
+/* InfoBillard */
+/* $primary-color: #f89406;  */
+/* $secondary-color: #241811; */
+
+$neutral-dark-color: #555555;
+$neutral-light-color: #999999;
+$neutral-lightest-color: #ffffff;

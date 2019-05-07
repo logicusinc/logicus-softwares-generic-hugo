@@ -1,6 +1,6 @@
 .c-testimonial {
   margin: 0 5px;
-  background: $white;
+  background: $neutral-lightest-color;
   padding: 20px;
 }
 
@@ -60,5 +60,5 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.10em;
-    color: $white;
+    color: $neutral-lightest-color;
 }

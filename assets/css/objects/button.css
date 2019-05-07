@@ -2,16 +2,17 @@
     font-weight: 700;
     text-transform: uppercase;
     padding: 6px 12px;
+    cursor: pointer;
 }
 
 .o-btn--primary {
     color: $primary-color;
-    background-color: $white;
+    background-color: $neutral-lightest-color;
     border-color: $primary-color;
 }
 
 .o-btn--primary:hover {
-    color: $white;
+    color: $neutral-lightest-color;
     background-color: $primary-color;
     border-color: $primary-color;
 }
