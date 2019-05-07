@@ -1,6 +1,6 @@
 {{ if .Site.Params.features.enable }}
 {{ if gt (len .Site.Data.features) 0 }}
-<section class="red">
+<section id="features" class="red">
     <div class="container">
         {{ range $index, $element := sort $.Site.Data.features "weight" }}
         {{ if eq (mod $index $.Site.Params.features.perRows) 0 }}

@@ -1,0 +1,52 @@
+.c-navbar {
+    height: 75px;
+}
+.c-navbar {
+    .row {
+        height: 100%;
+    }
+}
+
+.c-navbar--default {
+    background-color: $neutral-lightest-color;
+}
+
+.c-navbar__listItem {
+    flex: 1;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+
+}
+
+.c-navbar__listItem.active {
+    .c-navbar__link {
+        background-color: $primary-color;
+        color: $neutral-lightest-color;
+    }
+}
+
+.c-navbar__listItem:hover {
+    .c-navbar__link {
+        background-color: $primary-color;
+        color: $neutral-lightest-color;
+    }
+}
+
+.c-navbar__list {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.c-navbar__link {
+    width: 100%;
+    display: inline-block;
+    margin: 0 15px;
+    line-height: 75px;
+}
+
+.c-navbar__brand {
+    cursor: pointer;
+}

@@ -1,0 +1,30 @@
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="c-navbar c-navbar--default">
+                    <div class="row middle-xs">
+                        <div class="col-md-5">
+                            <div class="c-navbar__brand">
+                                <a href="{{ .Site.BaseURL }}">
+                                    <img src="https://www.infomarina.ca/images/InfoMarinaLogo.png" alt="{{ .Site.Title }} Logo">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <ul class="c-navbar__list">
+                                {{ range $index, $element := .Site.Params.Menu.Header }}
+                                {{ if eq ($index) 0 }}
+                                <li class="c-navbar__listItem active"><a class="c-navbar__link" href="{{ .url }}">{{ .name }}</a></li>
+                                {{ else }} 
+                                <li class="c-navbar__listItem"><a class="c-navbar__link" href="{{ .url }}">{{ .name }}</a></li>
+                                {{ end }}
+                                {{ end }}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
