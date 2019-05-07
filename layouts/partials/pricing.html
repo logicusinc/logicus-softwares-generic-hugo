@@ -1,5 +1,6 @@
 {{ if .Site.Params.pricings.enable }}
 {{ if gt (len .Site.Data.pricings) 0 }}
+{{ with index .Site.Data.pricings .Site.Language.Lang }}
 <section id="pricing" class="section-bg--pattern">
     <div class="container">
         <div class="row">
@@ -16,7 +17,7 @@
 
 
                 <div class="row">
-                    {{ range $index, $element := sort .Site.Data.pricings "weight" }}
+                    {{ range $index, $element := sort . "weight" }}
                     <div class="col-md">
 
                         {{ if .isFeatured }}
@@ -47,4 +48,4 @@
 </section>
 {{ end }}
 {{ end }}
-
+{{ end }}

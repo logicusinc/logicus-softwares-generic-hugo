@@ -1,8 +1,9 @@
 {{ if .Site.Params.features.enable }}
 {{ if gt (len .Site.Data.features) 0 }}
+{{ with index .Site.Data.features .Site.Language.Lang }}
 <section id="features" class="red">
     <div class="container">
-        {{ range $index, $element := sort $.Site.Data.features "weight" }}
+        {{ range $index, $element := sort . "weight" }}
         {{ if eq (mod $index $.Site.Params.features.perRows) 0 }}
         <div class="row">
             {{ end }}
@@ -11,8 +12,8 @@
                     <div class="o-img o-img__circleBorder o-img__circleBorder--primary">
                         <i class="{{ .icon }}"></i>
                     </div>
-                    <h3>{{ $element.name }}</h3>
-                    <p>{{ $element.description | markdownify }}</p>
+                    <h3>{{ .name }}</h3>
+                    <p>{{ .description | markdownify }}</p>
                 </div>
             </div>
 
@@ -22,5 +23,6 @@
         {{ end }}
     </div>
 </section>
+{{ end }}
 {{ end }}
 {{ end }}
