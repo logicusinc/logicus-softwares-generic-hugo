@@ -9,11 +9,13 @@
 @import "objects/image";
 @import "objects/button";
 @import "objects/link";
+@import "objects/form";
 
 @import "components/testimonials";
 @import "components/pricing";
 @import "components/copyright";
 @import "components/menu";
+@import "components/contact";
 
 @import "utilities";
 @import "hacks";

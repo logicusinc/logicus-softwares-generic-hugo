@@ -1,0 +1,25 @@
+.o-form__group {
+    margin-bottom: 15px;
+}
+
+.o-form__control {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 30px;
+    font-size: 18px;
+    width: 75%;
+    padding: 10px 20px;
+    color: $neutral-dark-color;
+    font-weight: 400;
+}
+
+.o-form__control:focus {
+    border-color: $primary-color;
+}
+
+.o-form__control:hover {
+    border-color: $primary-color;
+}
+
+.o-form__input--textArea {
+    height: auto;
+}
