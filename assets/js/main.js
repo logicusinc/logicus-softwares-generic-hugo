@@ -1,8 +1,13 @@
 $(function () {
-    sliders()
+    activateCarousels()
 })
 
-function sliders() {
+$(window).scroll(function () {
+    changeNavBehavior()
+})
+
+
+function activateCarousels() {
     if ($('.owl-carousel').length) {
         $('.js-testimonials').owlCarousel({
             items: 3,
@@ -32,5 +37,28 @@ function sliders() {
             itemsTablet: [768, 2],
             itemsMobile: [480, 1]
         })
+    }
+}
+
+function changeNavBehavior() {
+    navbar = $('.js-top-navbar')[0]
+    offsetHeight = navbar.offsetHeight;
+    offsetTop = navbar.offsetTop;
+
+    // Make the nav sticky when scrolling
+    if (window.pageYOffset > offsetTop) {
+        navbar.classList.add("c-navbar--sticky");
+    } else {
+        navbar.classList.remove("c-navbar--sticky");
+    }
+
+    // Make nav smaller after having scrolled more than the initial size of the
+    // nav. This makes it prettier in my opinion.
+    if (window.pageYOffset > offsetHeight) {
+        navbar.classList.add("c-navbar--small");
+        navbar.classList.remove("c-navbar--default");
+    } else {
+        navbar.classList.add("c-navbar--default");
+        navbar.classList.remove("c-navbar--small");
     }
 }

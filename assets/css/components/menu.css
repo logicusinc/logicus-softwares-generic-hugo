@@ -1,14 +1,37 @@
-.c-navbar {
-    height: 75px;
+body {
+    padding-top: 75px;
 }
+
 .c-navbar {
-    .row {
-        height: 100%;
+    top: 0;
+    width: 100%;
+    position: absolute;
+}
+
+.c-navbar--sticky {
+    width: 100%;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 2;
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.c-navbar--small {
+    height: 50px;
+
+    .c-navbar__link {
+        line-height: 50px
     }
 }
 
 .c-navbar--default {
-    background-color: $neutral-lightest-color;
+    height: 75px;
+
+    .c-navbar__link {
+        line-height: 75px;
+    }
 }
 
 .c-navbar__listItem {
@@ -43,5 +66,4 @@
     width: 100%;
     display: inline-block;
     margin: 0 15px;
-    line-height: 75px;
 }
