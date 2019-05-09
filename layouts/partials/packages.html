@@ -1,17 +1,17 @@
-{{ if .Site.Params.pricings.enable }}
-{{ if gt (len .Site.Data.pricings) 0 }}
-{{ with index .Site.Data.pricings .Site.Language.Lang }}
+{{ if .Site.Params.packages.enable }}
+{{ if gt (len .Site.Data.packages) 0 }}
+{{ with index .Site.Data.packages .Site.Language.Lang }}
 <section id="pricing" class="section-bg--pattern">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="heading u-text-center">
-                    <h2 class="h2">{{ .Site.Params.pricings.title }}</h2>
+                    <h2 class="h2">{{ .Site.Params.packages.title }}</h2>
                 </div>
 
-                {{ if .Site.Params.pricings.lead }}
+                {{ if .Site.Params.packages.lead }}
                 <p class="lead">
-                {{ .Site.Params.pricings.lead | markdownify }}
+                {{ .Site.Params.packages.lead | markdownify }}
                 </p>
                 {{ end }}
 
