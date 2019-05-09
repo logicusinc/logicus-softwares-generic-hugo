@@ -54,11 +54,3 @@
 .section-bg--pattern {
     background: url("https://www.toptal.com/designers/subtlepatterns/patterns/seigaiha.png")
 }
-
-.c-slider__content {
-    font-size: 18px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.10em;
-    color: $neutral-lightest-color;
-}

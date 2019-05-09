@@ -27,7 +27,7 @@ function activateCarousels() {
             itemsMobile: [480, 1]
         })
 
-        $('.js-slider').owlCarousel({
+        $('.js-hero').owlCarousel({
             // autoPlay: true,
             loop: true,
             autoplayTimeout: 5000,

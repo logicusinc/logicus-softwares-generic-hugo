@@ -1,13 +1,13 @@
-{{ if .Site.Params.slider.enable }}
+{{ if .Site.Params.hero.enable }}
 <section id="home" class="section-bg--image ">
     <!-- <section class="blue"> -->
     <div class="u-mask--primary"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class="owl-carousel owl-theme js-slider">
-                    {{ range $index, $element := sort .Site.Data.sliders "weight" }}
-                    <div class="row c-slider__content ">
+                <div class="owl-carousel owl-theme js-hero">
+                    {{ range $index, $element := sort .Site.Data.hero "weight" }}
+                    <div class="row c-hero__content ">
                         <div class="col-sm-5 u-text-right">
                             <p class="h1">{{ .title }}</p>
                             {{ .description | safeHTML }}

@@ -1,0 +1,7 @@
+.c-hero__content {
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: $neutral-lightest-color;
+}
