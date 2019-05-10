@@ -23,6 +23,7 @@
 @import "components/features";
 @import "components/hero";
 @import "components/clients";
+@import "components/pages";
 
 @import "utilities";
 @import "hacks";

@@ -1,0 +1,16 @@
+.c-page__content {
+    margin-left: 20px;
+    p {
+        margin: 20px 0px;
+    }
+}
+
+.c-page {
+    margin-top: 100px;
+}
+
+.c-page__image {
+    width: 400px;
+    height: 250px;
+    padding: 20px 0;
+}
