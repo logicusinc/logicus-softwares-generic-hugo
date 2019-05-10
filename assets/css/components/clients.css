@@ -1,5 +1,27 @@
 .c-client {
   margin: 0 5px;
   background: $neutral-lightest-color;
-  padding: 20px;
+  border: solid 1px $primary-color;
+  text-align: center;
 }
+
+
+.c-client__infos {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.c-client__infoIcon {
+    padding: 10px;
+}
+
+.c-client__info--middle {
+    border-left: 1px dashed $neutral-light-color;
+    border-right: 1px dashed $neutral-light-color;
+}
+
+.c-client__image {
+    height: 160.72px !important;
+    width: 395px !important;
+}
+

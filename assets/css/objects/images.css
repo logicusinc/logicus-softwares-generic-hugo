@@ -20,3 +20,18 @@
 .o-img__circle {
     border-radius: 30px;
 }
+
+
+.o-img__responsive {
+  object-fit: cover;
+  width: auto !important;
+  height: auto;
+}
+
+.o-img-hover {
+    cursor: pointer;
+}
+
+.o-img-hover:hover {
+    opacity: 0.80;
+}

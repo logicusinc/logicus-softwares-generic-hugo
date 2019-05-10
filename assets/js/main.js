@@ -1,9 +1,11 @@
 $(function () {
-    activateCarousels()
+    activateCarousels();
+    activateAlternateImage();
 })
 
+
 $(window).scroll(function () {
-    changeNavBehavior()
+    changeNavBehavior();
 })
 
 
@@ -61,4 +63,17 @@ function changeNavBehavior() {
         navbar.classList.add("c-navbar--default");
         navbar.classList.remove("c-navbar--small");
     }
+}
+
+function activateAlternateImage() {
+    $('.js-clients').on('click', '.js-image-hover', function (event) {
+        sourceImage = $(this).attr('data-source-image')
+        alternateImage = $(this).attr('data-alternate-image')
+
+        if (sourceImage !== $(this).attr('src')) {
+            $(this).attr('src', sourceImage)
+        } else {
+            $(this).attr('src', alternateImage)
+        }
+    });
 }

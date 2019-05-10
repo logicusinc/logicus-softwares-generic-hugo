@@ -15,12 +15,6 @@
     height: 100%;
 }
 
-.u-img-responsive {
-  object-fit: cover;
-  width: auto !important;
-  height: auto;
-}
-
 .u-mask--primary {
     position: absolute;
     top: 0;
@@ -29,4 +23,8 @@
     height: 100%;
     background: $primary-color;
     opacity: 0.85;
+}
+
+.u-horizontal-listItem {
+    display: inline-block;
 }

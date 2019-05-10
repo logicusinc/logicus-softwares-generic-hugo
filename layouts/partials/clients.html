@@ -16,46 +16,55 @@
 
                 <ul class="owl-carousel js-clients">
                     {{ range $index, $element := sort .Site.Data.clients "weight" }}
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <li title="{{ .name }}">
+                    <div class="c-client">
+                        <div class="row">
+                            <div class="col-sm-12">
                                 <p class="h3">{{ .name }}</p>
-                                <ul> 
-                                    <li>
-                                        <i class="fas fa-map-marker"></i>
-                                        {{ .location }}
-                                    </li>
-                                    {{ if .url }}
-                                    <li>
-                                        <i class="fas fa-globe"></i>
-                                        <a href="{{ .url }}" target="_blank">site web</a>
-                                    </li>
+                                {{ if .alternateImage }}
+                                    <img class="c-client__image o-img-hover js-image-hover" data-source-image="{{ .image }}" data-alternate-image="{{ .alternateImage}}" src="{{ .image }}" alt="{{ .name }}" />
+                                {{ else }}
+                                    <img class="c-client__image o-img__responsive" src="{{ .image }}" alt="{{ .name }}" />
+                                {{ end }}
+                            </div>
+                        </div>
+
+                        <div class="c-client__infos">
+                            <div class="row">
+                                <div class="col-sm-4 c-client__info">
+                                    <div>
+                                        <i class="c-client__infoIcon fas fa-map-marker"></i>
+                                    </div>
+                                    {{ if .location }}
+                                        <span>{{ .location }}</span>
+                                    {{ else }}
+                                        <span>—</span>
                                     {{ end }}
-                                    <li>
-                                        <i class="fas fa-anchor"></i>
-                                        300
-                                    </li>
-                                </ul>
-                            </li>
+                                </div>
 
+                                <div class="col-sm-4 c-client__info--middle">
+                                    <div>
+                                        <i class="c-client__infoIcon fas fa-globe"></i>
+                                    </div>
+                                    {{ if .url }}
+                                        <a href="{{ .url }}" target="_blank">visiter</a>
+                                    {{ else }}
+                                        <span>—</span>
+                                    {{ end }}
+                                </div>
+
+                                <div class="col-sm-4 c-client__info">
+                                    <div>
+                                        <i class="c-client__infoIcon fas fa-anchor"></i>
+                                    </div>
+                                    {{ if .count }}
+                                        <span>{{ .count }}</span>
+                                    {{ else }}
+                                        <span>300</span>
+                                    {{ end }}
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-6">
-                            <img class="img u-img-responsive" src="{{ .image }}" alt="{{ .name }}" />
-                        </div>
-
-                        <!-- <img class="img u&#45;img&#45;responsive" src="{{ .image }}" alt="{{ .name }}" /> -->
-
                     </div>
-
-                    <!-- <li title="{{ .name }}"> -->
-                    <!--     {{ if .url }} -->
-                    <!--       <a href="{{ .url }}" target="_blank"> -->
-                    <!--         <img class="img u&#45;img&#45;responsive" src="{{ .image }}" alt="{{ .name }}" /> -->
-                    <!--       </a> -->
-                    <!--     {{ else }} -->
-                    <!--       <img class="img u&#45;img&#45;responsive" src="{{ .image }}" alt="{{ .name }}" /> -->
-                    <!--     {{ end }} -->
-                    <!-- </li> -->
                     {{ end }}
                 </ul>
             </div>
