@@ -14,6 +14,11 @@
                     </div>
                     <h3 class="h3">{{ .name }}</h3>
                     <p>{{ .description | markdownify }}</p>
+                    {{ if and .ctaUrl .ctaText }}
+                    <a href="{{ .ctaUrl }}">
+                        <button class="o-btn o-btn--primary">{{ .ctaText }}</button>
+                    </a>
+                    {{ end }}
                 </div>
             </div>
 
