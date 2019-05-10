@@ -1,7 +1,13 @@
 .c-hero__content {
+    position: relative;
     font-size: 18px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.10em;
     color: $neutral-lightest-color;
+}
+
+.c-hero__image {
+    height: 400px;
+    padding-left: 70px;
 }

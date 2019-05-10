@@ -22,7 +22,7 @@ function activateCarousels() {
             items: 3,
             nav: false,
             loop: true,
-            // autoplay: true,
+            autoplay: true,
             autoplayTimeout: 2500,
             itemsDesktopSmall: [990, 3],
             itemsTablet: [768, 2],

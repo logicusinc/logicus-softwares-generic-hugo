@@ -1,11 +1,12 @@
 {{ if .Site.Params.hero.enable }}
 <section id="home" class="section-bg--image ">
-    <!-- <section class="blue"> -->
     <div class="u-mask--primary"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                {{ if gt (len .Site.Data.hero) 1 }}
                 <div class="owl-carousel owl-theme js-hero">
+                {{ end }}
                     {{ range $index, $element := sort .Site.Data.hero "weight" }}
                     <div class="row c-hero__content ">
                         <div class="col-sm-5 u-text-right">
@@ -13,11 +14,13 @@
                             {{ .description | safeHTML }}
                         </div>
                         <div class="col-sm-7 u-text-center">
-                            <img class="o-img__responsive" src="{{ .image }}" alt="">
+                            <img class="c-hero__image o-img__responsive" src="{{ .image }}" alt="">
                         </div>
                     </div>
                     {{ end }}
+                {{ if gt (len .Site.Data.hero) 1 }}
                 </div>
+                {{ end }}
             </div>
         </div>
     </div>
