@@ -5,13 +5,12 @@ $(function () {
     changeNavBehavior();
 })
 
-
 $(window).scroll(function () {
     changeNavBehavior();
 })
 
 function handleSmoothNavigationById() {
-    // handle links with @href started with '#' only
+    // handle links with @href containing '#'
     $(document).on('click', 'a[href*="#"]', function(e) {
         // target element id
         var id = $(this).attr('href');
@@ -32,9 +31,19 @@ function handleSmoothNavigationById() {
 
         // top position relative to the document
         var pos = $id.offset().top;
+        var navbar = $('.js-top-navbar')[0].offsetHeight;
 
+        // Extremely hacky
+        // We have a problem since the navbar change size whether it's fixed or
+        // static.
+        if (id == '#home') {
+            scrollTo = 0
+        } else {
+            // 50 is the height of the smaller navbar
+            scrollTo = pos - 50
+        }
         // animated top scrolling
-        $('body, html').animate({scrollTop: pos});
+        $('body, html').animate({scrollTop: scrollTo});
     });
 }
 
@@ -73,9 +82,9 @@ function activateCarousels() {
 }
 
 function changeNavBehavior() {
-    navbar = $('.js-top-navbar')[0]
-    offsetHeight = navbar.offsetHeight;
-    offsetTop = navbar.offsetTop;
+    var navbar = $('.js-top-navbar')[0]
+    var offsetHeight = navbar.offsetHeight;
+    var offsetTop = navbar.offsetTop;
 
     // Make the nav sticky when scrolling
     if (window.pageYOffset > offsetTop) {
@@ -97,8 +106,8 @@ function changeNavBehavior() {
 
 function activateAlternateImage() {
     $('.js-clients').on('click', '.js-image-hover', function (event) {
-        sourceImage = $(this).attr('data-source-image')
-        alternateImage = $(this).attr('data-alternate-image')
+        var sourceImage = $(this).attr('data-source-image')
+        var alternateImage = $(this).attr('data-alternate-image')
 
         if (sourceImage !== $(this).attr('src')) {
             $(this).attr('src', sourceImage)
