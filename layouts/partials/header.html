@@ -14,11 +14,7 @@
                         <div class="col-md-7">
                             <ul class="c-navbar__list">
                                 {{ range $index, $element := .Site.Params.Menu.Header }}
-                                {{ if eq ($index) 0 }}
-                                <li class="c-navbar__listItem active"><a class="c-navbar__link" href="{{ .Permalink | absURL }}{{ .url }}">{{ .name }}</a></li>
-                                {{ else }} 
-                                <li class="c-navbar__listItem"><a class="c-navbar__link" href="{{ .Parmalink | absURL }}{{ .url }}">{{ .name }}</a></li>
-                                {{ end }}
+                                <li class="c-navbar__listItem"><a class="c-navbar__link" href="{{ .Permalink | absURL }}{{ .url }}">{{ .name }}</a></li>
                                 {{ end }}
                             </ul>
                         </div>

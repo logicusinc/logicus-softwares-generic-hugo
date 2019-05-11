@@ -2,23 +2,41 @@ $(function () {
     activateCarousels();
     activateAlternateImage();
     handleSmoothNavigationById();
-    changeNavBehavior();
+    changeNavSize();
+    changeNavActive();
 })
 
 $(window).scroll(function () {
-    changeNavBehavior();
+    changeNavSize();
+    changeNavActive();
 })
+
+function changeNavActive() {
+    var scrollPos = $(document).scrollTop();
+    $('.c-navbar__listItem a').each(function () {
+        var currLink = $(this);
+        var refElement = $(currLink.prop("hash"));
+
+        // Skip menu items that points to something other than a div id.
+        if (refElement.position() !== undefined) {
+            var topOfSection = Math.floor(refElement.position().top - currLink[0].offsetHeight);
+            var bottomOfSection = Math.floor(refElement.position().top + refElement.outerHeight() - currLink[0].offsetHeight);
+
+            if (scrollPos >= topOfSection && scrollPos < bottomOfSection) {
+                currLink.parent().addClass("active");
+            } else {
+                currLink.parent().removeClass("active");
+            }
+        }
+    });
+}
 
 function handleSmoothNavigationById() {
     // handle links with @href containing '#'
     $(document).on('click', 'a[href*="#"]', function(e) {
         // target element id
-        var id = $(this).attr('href');
-
-        // Split string if string contains URL
-        if (id.charAt(0) !== '#') {
-            id = '#'.concat(id.split('#', 2)[1])
-        }
+        var currLink = $(this);
+        var id = currLink.prop('hash');
 
         // target element
         var $id = $(id);
@@ -31,7 +49,7 @@ function handleSmoothNavigationById() {
 
         // top position relative to the document
         var pos = $id.offset().top;
-        var navbar = $('.js-top-navbar')[0].offsetHeight;
+        var navbar = 50;
 
         // Extremely hacky
         // We have a problem since the navbar change size whether it's fixed or
@@ -40,7 +58,7 @@ function handleSmoothNavigationById() {
             scrollTo = 0
         } else {
             // 50 is the height of the smaller navbar
-            scrollTo = pos - 50
+            scrollTo = pos - navbar
         }
         // animated top scrolling
         $('body, html').animate({scrollTop: scrollTo});
@@ -81,7 +99,7 @@ function activateCarousels() {
     }
 }
 
-function changeNavBehavior() {
+function changeNavSize() {
     var navbar = $('.js-top-navbar')[0]
     var offsetHeight = navbar.offsetHeight;
     var offsetTop = navbar.offsetTop;
