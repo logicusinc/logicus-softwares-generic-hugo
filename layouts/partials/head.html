@@ -4,37 +4,98 @@
 
 <!-- robots -->
 <!-- you may configure it in the front matter of the page or in site params -->
-{{ if or (isset .Params "robots") (isset .Site.Params "robots") }}
-<meta name="robots" content="{{ with .Params.robots }}{{ . }}{{ else }}{{ .Site.Params.robots }}{{ end }}">
+{{ if .Site.Params.Robots }}
+<meta name="robots" content="{{ .Site.Params.Robots }}">
 {{ end }}
 
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory
      or place appropriate <link .../> etc in favicon.html partial -->
 {{ partial "favicon.html" . }}
 
-<title>{{ .Title }}</title>
-
-{{ if .Keywords }}
-<meta name="keywords" content="{{ delimit .Keywords ", " }}">
-{{ else if .Site.Params.DefaultKeywords }}
-<meta name="keywords" content="{{ delimit .Site.Params.DefaultKeywords ", " }}">
+<!-- Recommended 50-60 characters limit for meta title -->
+{{ if and ($.Param "generic.title") .Site.Title }}
+<title>{{ $.Param "generic.title" }} | {{ .Site.Title }}</title>
+{{ else if and .Site.Params.head.meta.generic.title .Site.Title }}
+<title>{{ .Site.Params.head.meta.generic.title }} | {{ .Site.Title }}</title>
 {{ end }}
 
-{{ if .Description }}
-<meta name="description" content="{{ .Description }}">
-{{ else if .Site.Params.DefaultDescription }}
-<meta name="description" content="{{ .Site.Params.DefaultDescription }}">
+<!-- Deprecated, let's not care about it -->
+{{ if $.Param "generic.keyword" }}
+<meta name="keywords" content="{{ delimit $.Param "generic.keyword" ", " }}">
+{{ else if .Site.Params.head.meta.generic.keyword }}
+<meta name="keywords" content="{{ delimit .Site.Params.head.meta.generic.keyword ", " }}">
 {{ end }}
 
-{{ define "meta_tags" }}
-<meta property="og:title" content="{{ .Site.Params.homepage_meta_tags.meta_og_title }}" />
-<meta property="og:type" content="{{ .Site.Params.homepage_meta_tags.meta_og_type }}" />
-<meta property="og:url" content="{{ .Site.Params.homepage_meta_tags.meta_og_url }}" />
-<meta property="og:image" content="{{ .Site.Params.homepage_meta_tags.meta_og_image }}" />
-<meta property="og:description" content="{{ .Site.Params.homepage_meta_tags.meta_og_description }}" />
-<meta name="twitter:card" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_card }}" />
-<meta name="twitter:site" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_site }}" />
-<meta name="twitter:creator" content="{{ .Site.Params.homepage_meta_tags.meta_twitter_creator }}" />
+<!-- Recommended 50-160 characters limit for meta description -->
+{{ if $.Param "generic.description" }}
+<meta name="description" content="{{ $.Param "generic.description" }}">
+{{ else if .Site.Params.head.meta.generic.description }}
+<meta name="description" content="{{ .Site.Params.head.meta.generic.description }}">
+{{ end }}
+
+<!-- Facebook share debugger: https://developers.facebook.com/tools/debug/ -->
+<!-- 90 characters limit for og title -->
+{{ if $.Param "og.title" }}
+<meta property="og:title" content="{{ $.Param "og.title" }}" />
+{{ else if .Site.Params.head.meta.og.title }}
+<meta property="og:title" content="{{ .Site.Params.head.meta.og.title }}" />
+{{ else if and ($.Param "generic.title") .Site.Title }}
+<meta property="og:title" content="{{ $.Param "generic.title" }} | {{ .Site.Title }}" />
+{{ else if and .Site.Params.head.meta.generic.title .Site.Title }}
+<meta property="og:title" content="{{ .Site.Params.head.meta.generic.title }} | {{ .Site.Title }}" />
+{{ end }}
+
+{{ if $.Param "og.type" }}
+<meta property="og:type" content="{{ $.Param "og.type" }}" />
+{{ else if .Site.Params.head.meta.og.type }}
+<meta property="og:type" content="{{ .Site.Params.head.meta.og.type }}" />
+{{ end }}
+
+{{ if $.Param "og.url" }}
+<meta property="og:url" content="{{ $.Param "og.url" }}" />
+{{ else if .Site.Params.head.meta.og.url }}
+<meta property="og:url" content="{{ .Site.Params.head.meta.og.url }}" />
+{{ else }}
+<meta property="og:url" content="{{ "/" | absLangURL }}" />
+{{ end }}
+
+{{ if $.Param "og.image" }}
+<meta property="og:image" content="{{ $.Param "og.image" }}" />
+{{ else if .Site.Params.head.meta.og.image }}
+<meta property="og:image" content="{{ .Site.Params.head.meta.og.image }}" />
+{{ end }}
+
+<!-- 250 limit for og description on Desktop -->
+<!-- 150 limit for og description on Mobile (will truncate with ellipsis -->
+{{ if $.Param "og.description" }}
+<meta property="og:description" content="{{ $.Param "og.description" }}" />
+{{ else if .Site.Params.head.meta.og.description }}
+<meta property="og:description" content="{{ .Site.Params.head.meta.og.description }}" />
+{{ else if $.Param "generic.description" }}
+<meta property="og:description" content="{{ $.Param "generic.description" }}">
+{{ else if .Site.Params.head.meta.generic.description }}
+<meta property="og:description" content="{{ .Site.Params.head.meta.generic.description }}">
+{{ end }}
+
+<!-- Twitter share debugger: https://cards-dev.twitter.com/validator -->
+<!-- 70 characters limit for Twitter title -->
+<!-- 124 characters limit for Twitter description -->
+{{ if $.Param "twitter.card" }}
+<meta name="twitter:card" content="{{ $.Param "twitter.card" }} " />
+{{ else if .Site.Params.head.meta.Twitter.card }}
+<meta name="twitter:card" content="{{ .Site.Params.head.meta.Twitter.card }}" />
+{{ end }}
+
+{{ if $.Param "twitter.site" }}
+<meta name="twitter:site" content="{{ $.Param "twitter.site" }} " />
+{{ else if .Site.Params.head.meta.twitter.site }}
+<meta name="twitter:site" content="{{ .Site.Params.head.meta.twitter.site }}" />
+{{ end }}
+
+{{ if $.Param "twitter.creator" }}
+<meta name="twitter:creator" content="{{ $.Param "twitter.creator" }} " />
+{{ else if .Site.Params.head.meta.twitter.creator }}
+<meta name="twitter:creator" content="{{ .Site.Params.head.meta.twitter.creator }}" />
 {{ end }}
 
 <!-- CSS -->
