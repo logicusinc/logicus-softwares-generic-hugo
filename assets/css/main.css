@@ -1,10 +1,24 @@
+/* ------------------- start variables ------------------- */
+/* I can't seem to find a way to use the pipe feature of GoHugo to have the
+ * variables living in a partial instead of at the top of this file.
+ *
+ * After many hours of attempt, I give up, it will have to live here instead,
+ * which is unfortunate and messy in my opinion!
+ */
+
+$primary-color: {{ .Site.Params.template.colors.primary_color | default "#59abd0"}};
+$secondary-color: {{ .Site.Params.template.colors.secondary_color | default "#2a84bd" }};
+
+$neutral-darkest-color: {{ .Site.Params.template.colors.neutral_darkest_color | default "#555555"}};
+$neutral-darker-color: {{ .Site.Params.template.colors.neutral_darker_color | default "#555555"}};
+$neutral-dark-color: {{ .Site.Params.template.colors.neutral_dark_color | default "#555555"}};
+$neutral-light-color: {{ .Site.Params.template.colors.neutral_light_color | default "#999999"}};
+$neutral-lighter-color: {{ .Site.Params.template.colors.neutral_lighter_color | default "#999999"}};
+$neutral-lightest-color: {{ .Site.Params.template.colors.neutral_lightest_color | default "#FFFFFF"}};
+
+/* ------------------- end variables ------------------- */
+
 @import "resets";
-
-@import "vendors";
-@import "vendors-override";
-
-@import "variables/colors";
-@import "variables/typography";
 
 @import "base/base";
 
