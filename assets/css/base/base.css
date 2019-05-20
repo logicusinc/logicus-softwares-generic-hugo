@@ -18,3 +18,14 @@ strong {
     margin-bottom: 40px;
     font-weight: 300;
 }
+
+
+.section-bg--primary {
+    .heading {
+        color: $neutral-lightest-color;
+    }
+
+    .lead {
+        color: $neutral-lightest-color;
+    }
+}

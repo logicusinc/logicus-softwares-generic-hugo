@@ -1,13 +1,14 @@
 {{ if .Site.Params.packages.enable }}
 {{ if gt (len .Site.Data.packages) 0 }}
-{{ with index .Site.Data.packages .Site.Language.Lang }}
-<section id="pricing" class="section-bg--pattern">
+<section id="package" class="section-bg--primary">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
+                {{ if .Site.Params.packages.title }}
                 <div class="heading u-text-center">
                     <h2 class="h2">{{ .Site.Params.packages.title }}</h2>
                 </div>
+                {{ end }}
 
                 {{ if .Site.Params.packages.lead }}
                 <p class="lead">
@@ -15,37 +16,37 @@
                 </p>
                 {{ end }}
 
-
+                {{ with index .Site.Data.packages .Site.Language.Lang }}
                 <div class="row">
                     {{ range $index, $element := sort . "weight" }}
                     <div class="col-md">
 
                         {{ if .isFeatured }}
-                        <div class="c-pricing__box c-pricing__box--featured">
-                        {{ else }}
-                        <div class="c-pricing__box">
-                        {{ end }}
-                            <div class="c-pricing__name">
-                                <p>{{ .name }}</p>
-                            </div>
-                            <ul class="c-pricing__list">
-                                {{ range .featureList }}
-                                <li class="c-pricing__list_item">{{ .item | markdownify }}</li> 
+                        <div class="c-package__box c-package__box--featured">
+                            {{ else }}
+                            <div class="c-package__box">
                                 {{ end }}
-                            </ul>
-                            <div class="c-pricing__footer">
-                                <a href="{{ .ctaURL }}">
-                                    <button class="o-btn o-btn--primary o-btn--big">{{ .ctaText }}</button>
-                                </a>
+                                <div class="c-package__name">
+                                    <p>{{ .name }}</p>
+                                </div>
+                                <ul class="c-package__list">
+                                    {{ range .featureList }}
+                                    <li class="c-package__list_item">{{ .item | markdownify }}</li>
+                                    {{ end }}
+                                </ul>
+                                <div class="c-package__footer">
+                                    <a href="{{ .ctaURL }}">
+                                        <button class="o-btn o-btn--primary o-btn--big">{{ .ctaText }}</button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
+                        {{ end }}
                     </div>
                     {{ end }}
                 </div>
             </div>
         </div>
-    </div>
 </section>
-{{ end }}
 {{ end }}
 {{ end }}

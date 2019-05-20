@@ -1,37 +1,37 @@
-.c-pricing__box {
+.c-package__box {
     text-align: center;
-    border: 1px solid $neutral-light-color;
+    border: 1px solid $neutral-lightest-color;
     background-color: $neutral-lightest-color;
     max-width: 290px;
     margin: auto;
 }
 
 
-.c-pricing__box--featured {
+.c-package__box--featured {
     max-width: 400px;
 }
 
-.c-pricing__name {
+.c-package__name {
     font-weight: 700;
     padding: 25px;
-    background-color: $primary-color;
+    background-color: $secondary-color;
     margin-bottom: 25px;
     text-transform: uppercase;
     color: $neutral-lightest-color;
 }
 
-.c-pricing__list {
+.c-package__list {
     margin: 0 20px;
 }
 
-.c-pricing__list_item {
+.c-package__list_item {
     padding: 10px 20px;
 }
 
-.c-pricing__list_item:not(:last-child) {
+.c-package__list_item:not(:last-child) {
     border-bottom: 1px dashed $neutral-light-color;
 }
 
-.c-pricing__footer {
+.c-package__footer {
     padding: 10px;
 }

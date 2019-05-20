@@ -8,6 +8,13 @@
     margin-top: 20px;
 }
 
+
+.section-bg--primary  {
+    .h2 {
+        border-bottom: solid 5px $neutral-lightest-color;
+    }
+}
+
 .h2 {
     border-bottom: solid 5px $primary-color;
     display: inline-block;

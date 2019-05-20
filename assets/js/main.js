@@ -81,6 +81,7 @@ function activateCarousels() {
             loop: true,
             autoplay: true,
             autoplayTimeout: 2500,
+            autoplayHoverPause: true,
             itemsDesktopSmall: [990, 3],
             itemsTablet: [768, 2],
             itemsMobile: [480, 1]
