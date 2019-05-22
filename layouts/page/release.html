@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+    <body>
+        {{ partial "header.html" . }}
+
+        <div class="c-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="h2">{{ .Title}}</h1>
+                        <main class="c-page__content">{{ .Content }}</main>
+                        {{ range $index, $element := sort $.Site.Data.changelog "version_date" }}
+                        <div class="row c-release">
+                            <div class="col-md-10">
+                                <ul class="o-list--dash o-list--first">
+                                    <li class="c-release__version"><a href="{{ .download_link }}">{{ $.Site.Params.changelog.version_prefix_label }}{{ .version_number }}</li></a>
+                                    {{ range $index, $element := .added.category }}
+                                    <ul class="c-release__category o-list--padded o-list--none">
+                                        {{ if .label }}
+                                        <li class="c-release__categoryLabel">{{ .label }}</li>
+                                        {{ else }}
+                                        <li class="c-release__categoryLabel">{{ $.Site.Params.changelog.default_added_label }}</li>
+                                        {{ end }}
+
+                                        <ul class="o-list--padded o-list--disc">
+                                            {{ range $index, $element := .items }}
+                                            <li>{{ .item  | markdownify }}</li>
+                                            {{ end }}
+                                        </ul>
+                                    </ul>
+                                    {{ end }}
+
+                                    {{ range $index, $element := .fixed.category }}
+                                    <ul class="o-list--padded o-list--none">
+                                        {{ if .label }}
+                                        <li class="c-release__categoryLabel">{{ .label }}</li>
+                                        {{ else }}
+                                        <li class="c-release__categoryLabel">{{ $.Site.Params.changelog.default_fixed_label }}</li>
+                                        {{ end }}
+
+                                        <ul class="o-list--padded o-list--disc">
+                                            {{ range $index, $element := .items }}
+                                            <li>{{ .item  | markdownify }}</li>
+                                            {{ end }}
+                                        </ul>
+                                    </ul>
+                                    {{ end }}
+                                </ul>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="c-version__date">{{ .version_date.Format "2006-01-02" }}</div>
+                                {{ if  .download_link }}
+                                <a href="{{ .download_link }}" class="c-version__link">{{ $.Site.Params.changelog.download_label }}</a>
+                                {{ else }}
+                                <span class="c-version__link">{{ $.Site.Params.changelog.no_download_label }}<span>
+                                {{ end }}
+                            </div>
+                        </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{ partial "footer.html" . }}
+    </body>
+</html>

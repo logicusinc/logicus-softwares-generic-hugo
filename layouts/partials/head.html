@@ -4,7 +4,9 @@
 
 <!-- robots -->
 <!-- you may configure it in the front matter of the page or in site params -->
-{{ if .Site.Params.Robots }}
+{{ if $.Param "generic.robots" }}
+<meta name="robots" content="{{ $.Param "generic.robots" }}">
+{{ else if .Site.Params.Robots }}
 <meta name="robots" content="{{ .Site.Params.Robots }}">
 {{ end }}
 

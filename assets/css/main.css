@@ -28,6 +28,7 @@ $neutral-lightest-color: {{ .Site.Params.template.colors.neutral_lightest_color 
 @import "objects/buttons";
 @import "objects/links";
 @import "objects/forms";
+@import "objects/lists";
 
 @import "components/testimonials";
 @import "components/packages";
@@ -38,6 +39,7 @@ $neutral-lightest-color: {{ .Site.Params.template.colors.neutral_lightest_color 
 @import "components/hero";
 @import "components/clients";
 @import "components/pages";
+@import "components/releases";
 
 @import "utilities";
 @import "hacks";

@@ -1,0 +1,22 @@
+.o-list--disc {
+    list-style-type: disc;
+}
+
+.o-list--none {
+    list-style-type: none;
+}
+
+.o-list--dash {
+    list-style: none;
+
+    > li:before {
+        display: inline-block;
+        content: "-";
+        width: 1em;
+        margin-left: -1em;
+    }
+}
+
+.o-list--padded {
+    padding-left: 25px;
+}

@@ -1,0 +1,22 @@
+.c-release {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.c-release__version {
+    font-weight: 700;
+}
+
+.c-release__link {
+    font-weight: 700;
+}
+
+.c-release__category {
+    list-style: none;
+}
+
+.c-release__categoryLabel {
+    font-weight: 700;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
