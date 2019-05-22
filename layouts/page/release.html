@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
     <head>
         {{ partial "head.html" . }}
@@ -13,11 +12,12 @@
                     <div class="col-md-12">
                         <h1 class="h2">{{ .Title}}</h1>
                         <main class="c-page__content">{{ .Content }}</main>
-                        {{ range $index, $element := sort $.Site.Data.changelog "version_date" }}
+                        {{ with index .Site.Data.changelog .Site.Language.Lang }}
+                        {{ range $index, $element := sort . "version_date" }}
                         <div class="row c-release">
                             <div class="col-md-10">
                                 <ul class="o-list--dash o-list--first">
-                                    <li class="c-release__version"><a href="{{ .download_link }}">{{ $.Site.Params.changelog.version_prefix_label }}{{ .version_number }}</li></a>
+                                    <li class="c-release__version"><a href="{{ .download_link }}">InfoMarina version {{ .version_number }}</li></a>
                                     {{ range $index, $element := .added.category }}
                                     <ul class="c-release__category o-list--padded o-list--none">
                                         {{ if .label }}
@@ -37,9 +37,9 @@
                                     {{ range $index, $element := .fixed.category }}
                                     <ul class="o-list--padded o-list--none">
                                         {{ if .label }}
-                                        <li class="c-release__categoryLabel">{{ .label }}</li>
+                                        <li>{{ .label }}</li>
                                         {{ else }}
-                                        <li class="c-release__categoryLabel">{{ $.Site.Params.changelog.default_fixed_label }}</li>
+                                        <li>{{ $.Site.Params.changelog.default_fixed_label }}</li>
                                         {{ end }}
 
                                         <ul class="o-list--padded o-list--disc">
@@ -60,6 +60,7 @@
                                 {{ end }}
                             </div>
                         </div>
+                        {{ end }}
                         {{ end }}
                     </div>
                 </div>
